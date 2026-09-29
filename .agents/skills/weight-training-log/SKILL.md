@@ -7,7 +7,7 @@ description: Record weight training exercises, sets, reps, and durations into da
 
 ## 概要
 
-`C:\Users\hsmtk\proton\weight-training-log` に日別JSONファイルでトレーニング記録を保存する。
+環境変数 $WEIGHT_TRAINING_LOG フォルダに日別JSONファイルでトレーニング記録を保存する。
 
 ## 記録形式
 
@@ -20,11 +20,7 @@ description: Record weight training exercises, sets, reps, and durations into da
     {
       "name": "exercise name",
       "weight": "8kg",
-      "sets": [
-        {"reps": 10},
-        {"reps": 10},
-        {"reps": 10}
-      ]
+      "reps": [10, 10, 10]
     }
   ]
 }
@@ -36,13 +32,11 @@ description: Record weight training exercises, sets, reps, and durations into da
 {
   "name": "farmers walk",
   "weight": "12.5kg per hand",
-  "sets": [
-    {"duration": "1min"},
-    {"duration": "1min"},
-    {"duration": "1min"}
-  ]
+  "duration": ["1min", "1min", "1min"]
 }
 ```
+
+サンプルファイル: @.agents\skills\weight-training-log\sample.json
 
 ## 入力フォーマット
 
@@ -57,7 +51,7 @@ description: Record weight training exercises, sets, reps, and durations into da
 
 - セット数×レップ数の区切りは `×` または `x`
 - 重量は文字列としてそのまま格納（単位分離なし）
-- 時間系エクササイズは `sets` 内を `{"duration": "Xmin"}` で記録
+- 時間系エクサ尺寸は `duration` 配列で記録（例: `["1min", "1min", "1min"]`）
 
 ## ワークフロー
 
@@ -67,5 +61,7 @@ description: Record weight training exercises, sets, reps, and durations into da
 4. 入力をパースし、各エクササイズについて種目名・重量・セット数・レップ数を抽出する。
 5. バリデーション：セット数・レップ数が正の整数であることを確認。失敗時は再入力を求める。
 6. パース結果をユーザーに確認してもらう。
+   - レップ系は `reps: [10, 10, 10]` 形式
+   - 時間系は `duration: ["1min", "1min", "1min"]` 形式
 7. `YYYY-MM-DD.json` に記録する。
 8. 記録内容をユーザーに確認する。

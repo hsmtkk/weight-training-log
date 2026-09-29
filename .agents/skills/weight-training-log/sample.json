@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-28",
+  "exercises": [
+    {
+      "name": "dumbbell shoulder press",
+      "weight": "8kg",
+      "reps": [10, 10, 10]
+    },
+    {
+      "name": "farmers walk",
+      "weight": "12.5kg per hand",
+      "duration": ["1min", "1min", "1min"]
+    }
+  ]
+}
