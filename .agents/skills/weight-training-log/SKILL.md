@@ -9,6 +9,19 @@ description: Record weight training exercises, sets, reps, and durations into da
 
 環境変数 $WEIGHT_TRAINING_LOG フォルダに日別JSONファイルでトレーニング記録を保存する。
 
+## 言語規約
+
+記録ファイル（`YYYY-MM-DD.json`）に書き込む値はすべて英語で統一する。日本語表記は使用しない。
+
+- `name`: 英文の種目名（`dumbbell shoulder press`、`farmers walk`）
+- `weight`: 数値＋英文単位（`80kg`、`bodyweight`、`12.5kg per hand`）
+- `duration`: 数値＋英文単位（`1min`、`70 secs`）
+
+表記は半角英数字と半角記号のみとする。
+
+ユーザーが日本語で入力した場合は、記録前に標準的な英文種目名へ変換し、変換結果をユーザーに確認する。
+書き込み前に日本語（漢字・かな）が含まれないことを検証し、混在する場合は記録を中止してユーザーに確認する。
+
 ## 記録形式
 
 1日のファイルを `YYYY-MM-DD.json` で作成する。
