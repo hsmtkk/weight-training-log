@@ -64,6 +64,7 @@ description: Record weight training exercises, sets, reps, and durations into da
 
 - セット数×レップ数の区切りは `×` または `x`
 - 重量は文字列としてそのまま格納（単位分離なし）
+- 重量の指定がない種目は自重種目とみなし、`weight` に `bodyweight` を記録する（ユーザーへの確認は不要）
 - 時間系エクサ尺寸は `duration` 配列で記録（例: `["1min", "1min", "1min"]`）
 
 ## ワークフロー
